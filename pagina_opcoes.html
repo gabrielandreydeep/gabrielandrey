@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha o tipo de design</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function enviarFormulario(event) {
+            event.preventDefault();
+
+            const textos = encodeURIComponent(document.getElementById('textos').value);
+            const cores = encodeURIComponent(document.getElementById('cores').value);
+            const fotos = document.getElementById('fotos').files.length > 0 ? encodeURIComponent(document.getElementById('fotos').files[0].name) : 'Sem foto';
+            const tamanho = encodeURIComponent(document.getElementById('tamanho').value);
+            const detalhes = encodeURIComponent(document.getElementById('detalhes').value);
+
+            const urlWhatsApp = `https://wa.me/5582996074592?text=Texto:%20${textos}%0APaleta%20de%20Cores:%20${cores}%0AFotos:%20${fotos}%0ATamanho%20do%20Design:%20${tamanho}%0ADetalhes:%20${detalhes}`;
+
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</head>
+<body>
+    <h1>Veja os modelos de R$10 nos destaques do meu perfil. Se preferir feito do zero (R$20), preencha abaixo:</h1>
+    
+    <div>
+        <button onclick="window.location.href='https://www.instagram.com/gabrielandreydesigner?igsh=MXdmY3c3MThlYnA1bg=='">Veja os modelos de R$10 nos destaques</button>
+    </div>
+
+    <form onsubmit="enviarFormulario(event)">
+        <div>
+            <label for="textos">Textos:</label>
+            <textarea id="textos" name="textos" required></textarea>
+        </div>
+        <div>
+            <label for="cores">Paleta de Cores:</label>
+            <input type="text" id="cores" name="cores" required>
+        </div>
+        <div>
+            <label for="fotos">Fotos:</label>
+            <input type="file" id="fotos" name="fotos" accept="image/*">
+        </div>
+        <div>
+            <label for="tamanho">Tamanho do Design:</label>
+            <input type="text" id="tamanho" name="tamanho" required>
+        </div>
+        <div>
+            <label for="detalhes">Detalhes:</label>
+            <textarea id="detalhes" name="detalhes"></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <footer>
+        <p>Site feito e criado por <a href="https://www.instagram.com/gabrielandreydesigner" target="_blank">@gabrielandreydesigner</a></p>
+    </footer>
+</body>
+</html>
